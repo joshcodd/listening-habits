@@ -14,14 +14,7 @@ function Slideshow(props) {
 
   return (
     <div>
-      <div className="slideshow">
-        <div className="item blue" id="slide1">
-          {/* {topData.map((artist) => {
-            return <div className="artist">{artist}</div>;
-          })} */}
-        </div>
-        <div className="item red" id="slide2"></div>
-      </div>
+      <div className="slideshow">{props.children}</div>
 
       <ul className="buttons">
         <li className="upArrow">

@@ -29,23 +29,3 @@
   box-sizing: content-box;
   overflow: hidden;
 }
-
-.item {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-}
-
-.artist {
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-}
-
-.red {
-  background-color: rgba(184, 15, 15, 0.267);
-}
-
-.blue {
-  background-color: rgba(0, 0, 255, 0);
-}

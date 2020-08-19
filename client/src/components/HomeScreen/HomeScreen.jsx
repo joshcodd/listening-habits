@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./homescreen.css";
 import Header from "../Header/Header";
 import Slideshow from "../Slideshow/Slideshow";
+import SlideshowItem from "../SlideshowItem/SlideshowItem";
 
 function HomeScreen(props) {
   const [profileData, setProfileData] = useState({
@@ -57,7 +58,14 @@ function HomeScreen(props) {
         currentView={currentView}
       />
 
-      <Slideshow currentView={currentView} setCurrentView={setCurrentView} />
+      <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
+        <SlideshowItem className="blue" id="slide1">
+          {topData.map((artist) => {
+            return <div className="artist">{artist}</div>;
+          })}
+        </SlideshowItem>
+        <SlideshowItem className="red" id="slide2" />
+      </Slideshow>
     </div>
   );
 }

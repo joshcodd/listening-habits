@@ -2,19 +2,6 @@ import React from "react";
 import "./loginscreen.css";
 
 function LogInScreen() {
-  // async function callAPILogIn() {
-  //   const res = await fetch("/APIlogin/");
-  //   const body = res.json();
-  //   return body;
-  // }
-
-  // function handleClick() {
-  //   callAPILogIn().then(
-  //     (res) => console.log(res), //on success
-  //     (err) => console.log(err) //on error
-  //   );
-  // }
-
   return (
     <div className="LogIn">
       <div className="title"></div>
