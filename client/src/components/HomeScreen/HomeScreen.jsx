@@ -11,15 +11,14 @@ function HomeScreen(props) {
     name: "",
     followers: 0,
   });
-
-  const [topData, setTopData] = useState([]);
+  const [topArtistData, setTopArtists] = useState([]);
+  const [topTracksData, setTopTracks] = useState([]);
   const [currentView, setCurrentView] = useState("Artists");
 
   async function getProfileData() {
     const res = await fetch("https://api.spotify.com/v1/me", {
       headers: { Authorization: "Bearer " + props.token },
     });
-
     const body = await res.json();
 
     setProfileData({
@@ -27,11 +26,9 @@ function HomeScreen(props) {
       name: body.display_name,
       followers: body.followers.total0,
     });
-
-    console.log(profileData);
   }
 
-  async function getTopData() {
+  async function getTopArtists() {
     const res = await fetch(
       "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=20&offset=0",
       { headers: { Authorization: "Bearer " + props.token } }
@@ -40,14 +37,37 @@ function HomeScreen(props) {
 
     let topArtists = [];
     for (let i = 0; i < 10; i++) {
-      topArtists.push(topData.items[i].name);
+      topArtists.push({
+        name: topData.items[i].name,
+      });
     }
-    setTopData(topArtists);
+    setTopArtists(topArtists);
+  }
+
+  async function getTopTracks() {
+    const res = await fetch(
+      "https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=20&offset=0",
+      { headers: { Authorization: "Bearer " + props.token } }
+    );
+    const topData = await res.json();
+    console.log(topData);
+
+    let topTracks = [];
+    for (let i = 0; i < 10; i++) {
+      topTracks.push({
+        name: topData.items[i].name,
+        artist: topData.items[i].artists[0].name,
+        album: topData.items[i].album.name,
+        release: topData.items[i].album.release_date,
+      });
+    }
+    setTopTracks(topTracks);
   }
 
   useEffect(() => {
     getProfileData();
-    getTopData();
+    getTopArtists();
+    getTopTracks();
     // eslint-disable-next-line
   }, []);
 
@@ -60,13 +80,31 @@ function HomeScreen(props) {
       />
 
       <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
-        <SlideshowItem className="blue" id="slide1">
-          {topData.map((artist, index) => {
-            return <DataBar index={index} artist={artist}></DataBar>;
+        <SlideshowItem id="slide1">
+          {topArtistData.map((artist, index) => {
+            return (
+              <DataBar
+                key={index}
+                index={index}
+                type="artist"
+                data={artist}
+              ></DataBar>
+            );
           })}
         </SlideshowItem>
 
-        <SlideshowItem className="red" id="slide2" />
+        <SlideshowItem id="slide2">
+          {topTracksData.map((track, index) => {
+            return (
+              <DataBar
+                key={index}
+                index={index}
+                type="tracks"
+                data={track}
+              ></DataBar>
+            );
+          })}
+        </SlideshowItem>
       </Slideshow>
     </div>
   );

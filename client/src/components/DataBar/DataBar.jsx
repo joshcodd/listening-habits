@@ -5,7 +5,13 @@ function DataBar(props) {
   return (
     <div className="databar">
       <span className="index">{props.index + 1}</span>
-      <span className="data">{props.artist}</span>
+      <span className="data">{props.data.name.slice(0, 35)}</span>
+
+      {props.type === "tracks" && (
+        <span className="trackArtist">
+          {props.data.artist + " - " + props.data.album}
+        </span>
+      )}
     </div>
   );
 }
