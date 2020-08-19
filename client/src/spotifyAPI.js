@@ -31,10 +31,13 @@ export async function getTopArtists(token) {
   );
   const topData = await res.json();
 
+  console.log(topData);
+
   let topArtists = [];
   for (let i = 0; i < 10; i++) {
     topArtists.push({
       name: topData.items[i].name,
+      image: topData.items[i].images[0].url,
     });
   }
   return topArtists;
@@ -46,7 +49,7 @@ export async function getTopTracks(token) {
     { headers: { Authorization: "Bearer " + token } }
   );
   const topData = await res.json();
-
+  console.log(topData);
   let topTracks = [];
   for (let i = 0; i < 10; i++) {
     topTracks.push({
@@ -54,6 +57,7 @@ export async function getTopTracks(token) {
       artist: topData.items[i].artists[0].name,
       album: topData.items[i].album.name,
       release: topData.items[i].album.release_date,
+      image: topData.items[i].album.images[0].url,
     });
   }
 

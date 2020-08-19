@@ -34,6 +34,7 @@ function HomeScreen(props) {
 
     let topArtists = await getTopArtists(props.token);
     setTopArtists(topArtists);
+    console.log(topArtists);
 
     let topTracks = await getTopTracks(props.token);
     setTopTracks(topTracks);

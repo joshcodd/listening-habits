@@ -5,6 +5,12 @@ function DataBar(props) {
   return (
     <div className="databar">
       <span className="index">{props.index + 1}</span>
+
+      <img
+        className={props.type === "artist" ? "artistImage" : "trackImage"}
+        src={props.data.image}
+      ></img>
+
       <span className="data">{props.data.name.slice(0, 35)}</span>
 
       {props.type === "tracks" && (

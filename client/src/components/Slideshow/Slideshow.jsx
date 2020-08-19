@@ -23,6 +23,8 @@ function Slideshow(props) {
           </a>
         </li>
 
+        <li className="navigate">Navigate</li>
+
         <li className="downArrow">
           <a href="#slide2" onClick={handleClickDown}>
             <FontAwesomeIcon icon={faReply} size="3x" color="white" />
