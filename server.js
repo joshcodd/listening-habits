@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 
 //Get spotify authorization code
 app.get("/APIlogin", function (req, res) {
-  var scope = "user-top-read";
+  var scope = "user-top-read user-follow-read";
   res.redirect(
     "https://accounts.spotify.com/authorize?" +
       "client_id=" +
