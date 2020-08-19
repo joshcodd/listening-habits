@@ -3,6 +3,7 @@ import "./homescreen.css";
 import Header from "../Header/Header";
 import Slideshow from "../Slideshow/Slideshow";
 import SlideshowItem from "../SlideshowItem/SlideshowItem";
+import DataBar from "../DataBar/DataBar";
 
 function HomeScreen(props) {
   const [profileData, setProfileData] = useState({
@@ -60,10 +61,11 @@ function HomeScreen(props) {
 
       <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
         <SlideshowItem className="blue" id="slide1">
-          {topData.map((artist) => {
-            return <div className="artist">{artist}</div>;
+          {topData.map((artist, index) => {
+            return <DataBar index={index} artist={artist}></DataBar>;
           })}
         </SlideshowItem>
+
         <SlideshowItem className="red" id="slide2" />
       </Slideshow>
     </div>
