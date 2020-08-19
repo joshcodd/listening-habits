@@ -1,0 +1,11 @@
+.bubble {
+  text-align: center;
+  display: flex;
+}
+
+.bubbleText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  height: 60%;
+  width: 90%;
+}

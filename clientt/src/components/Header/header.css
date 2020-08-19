@@ -1,0 +1,30 @@
+.profilePicture {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 1000%;
+  margin-left: 5vw;
+
+  margin-top: 35px;
+}
+
+.name {
+  position: relative;
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  bottom: 65px;
+
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.currentTitle {
+  font-size: 90px;
+  float: right;
+  margin: 35px 5vw 0 0;
+
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
