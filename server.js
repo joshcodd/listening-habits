@@ -8,11 +8,11 @@ app.use(cookieParser());
 require("dotenv").config();
 
 const port = process.env.PORT || 5000;
-
 let redirectURL = process.env.SPOTIFY_REDIRECT_URL_LOCAL;
 let home = "http://localhost:3000/";
 
 if (process.env.NODE_ENV === "production") {
+  //get env variables to work
   redirectURL = "https://radiant-fortress-31626.herokuapp.com/response";
   home = "https://radiant-fortress-31626.herokuapp.com";
 
