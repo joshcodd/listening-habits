@@ -1,6 +1,8 @@
+var cookieParser = require("cookie-parser");
 const express = require("express");
 var request = require("request"); // "Request" library
 const app = express();
+app.use(cookieParser());
 require("dotenv").config();
 
 const port = process.env.PORT || 5000;
@@ -45,7 +47,8 @@ app.get("/response", function (req, res) {
     var accessToken = body.access_token;
     var refreshToken = body.refresh_token;
 
-    res.redirect("http://localhost:3000/" + accessToken);
+    res.cookie("accessToken", accessToken);
+    res.redirect("http://localhost:3000");
   });
 });
 

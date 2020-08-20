@@ -3,7 +3,8 @@ import "./header.css";
 
 function Header(props) {
   function handle() {
-    document.cookie = "";
+    document.cookie = "accessToken=";
+    console.log(document.cookie);
     window.location.replace("http://localhost:3000");
   }
 
