@@ -5,7 +5,7 @@
 
   height: 10%;
   width: 100%;
-  border: 1px dotted rgba(255, 255, 255, 0.404);
+  border: 1px none rgba(255, 255, 255, 0.404);
   box-sizing: border-box;
 }
 
@@ -20,13 +20,13 @@
 .data {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .trackArtist {
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.39);
-  font-size: 15px;
+  font-size: 10px;
   margin: 10px 15px 0 15px;
 }
 

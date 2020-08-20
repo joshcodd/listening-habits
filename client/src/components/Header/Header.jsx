@@ -17,11 +17,11 @@ function Header(props) {
           <h1 className="followTitle">Followers</h1>
           <h1 className="follow">{props.followers}</h1>
         </div>
+        <button className="logOut">Log Out</button>
       </div>
 
-      {props.children}
-
       <h1 className="currentTitle">Top {props.currentView}</h1>
+      {props.children}
     </div>
   );
 }
