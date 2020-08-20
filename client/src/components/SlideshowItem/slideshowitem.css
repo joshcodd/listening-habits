@@ -3,6 +3,7 @@
   height: 100%;
   width: 100%;
   margin: 0px;
+  animation: fadein 2s;
 }
 
 .red {
@@ -11,4 +12,13 @@
 
 .blue {
   background-color: rgba(0, 0, 255, 0);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

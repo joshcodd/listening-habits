@@ -19,6 +19,8 @@ function Header(props) {
         </div>
       </div>
 
+      {props.children}
+
       <h1 className="currentTitle">Top {props.currentView}</h1>
     </div>
   );

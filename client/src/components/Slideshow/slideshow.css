@@ -40,6 +40,7 @@ li {
   width: 83vw;
   box-sizing: content-box;
   overflow: hidden;
+  animation: fadein 2s;
 }
 
 .navigate {
@@ -50,4 +51,13 @@ li {
   bottom: 142px;
   left: 13px;
   transform: rotate(90deg);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

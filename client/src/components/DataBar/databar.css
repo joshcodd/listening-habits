@@ -20,14 +20,14 @@
 .data {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .trackArtist {
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.39);
-  font-size: 18px;
-  margin: 0 15px;
+  font-size: 15px;
+  margin: 10px 15px 0 15px;
 }
 
 .trackImage {
@@ -41,4 +41,29 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  .data {
+    font-size: 10px;
+  }
+
+  .trackArtist {
+    font-size: 4px;
+    margin: 5px 15px 0 5px;
+  }
+  .artistImage {
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+
+  .trackImage {
+    margin-right: 5px;
+  }
+
+  .index {
+    margin: 0 5px;
+    width: 20px;
+    font-size: 20px;
+  }
 }

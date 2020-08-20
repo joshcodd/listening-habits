@@ -9,7 +9,9 @@ import {
   getTopArtists,
   getTopTracks,
   getFollowing,
+  convertTime,
 } from "../../spotifyAPI";
+import SplitButton from "../SplitButton/SplitButton";
 
 function HomeScreen(props) {
   const [profileData, setProfileData] = useState({
@@ -21,22 +23,29 @@ function HomeScreen(props) {
   const [topArtistData, setTopArtists] = useState("");
   const [topTracksData, setTopTracks] = useState("");
   const [currentView, setCurrentView] = useState("Artists");
+  const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
 
   useEffect(() => {
-    generate();
+    generate(currentTimeSelection);
     // eslint-disable-next-line
   }, []);
 
-  async function generate() {
+  useEffect(() => {
+    generate(currentTimeSelection);
+    // eslint-disable-next-line
+  }, [currentTimeSelection]);
+
+  async function generate(timeSelection) {
+    let timeRange = convertTime(timeSelection);
+
     let following = await getFollowing(props.token);
     let profile = await getProfileData(props.token);
     setProfileData({ ...profile, following: following });
 
-    let topArtists = await getTopArtists(props.token);
+    let topArtists = await getTopArtists(props.token, timeRange);
     setTopArtists(topArtists);
-    console.log(topArtists);
 
-    let topTracks = await getTopTracks(props.token);
+    let topTracks = await getTopTracks(props.token, timeRange);
     setTopTracks(topTracks);
   }
 
@@ -48,7 +57,12 @@ function HomeScreen(props) {
         followers={profileData.followers}
         following={profileData.following}
         currentView={currentView}
-      />
+      >
+        <SplitButton
+          currentSelection={currentTimeSelection}
+          setSelection={setCurrentTimeSelection}
+        />
+      </Header>
 
       <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
         <SlideshowItem id="slide1">

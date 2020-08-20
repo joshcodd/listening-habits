@@ -1,0 +1,31 @@
+.buttonContainer {
+  position: absolute;
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: 120px;
+  margin-bottom: 0px;
+}
+
+button {
+  border: 1px solid white;
+  background: none;
+  color: white;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}
+
+.buttonActive {
+  background: white;
+  color: black;
+}
+
+.buttonLeft {
+  border-radius: 50px 0 0 50px;
+}
+
+.buttonRight {
+  border-radius: 0 50px 50px 0;
+}

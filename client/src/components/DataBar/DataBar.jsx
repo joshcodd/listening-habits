@@ -9,6 +9,7 @@ function DataBar(props) {
       <img
         className={props.type === "artist" ? "artistImage" : "trackImage"}
         src={props.data.image}
+        alt="artist"
       ></img>
 
       <span className="data">{props.data.name.slice(0, 35)}</span>
