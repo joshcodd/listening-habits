@@ -52,6 +52,10 @@ app.get("/response", function (req, res) {
   });
 });
 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 app.listen(port, function () {
   console.log("Server running on port 5000.");
 });
