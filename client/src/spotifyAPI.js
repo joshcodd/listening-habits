@@ -20,10 +20,15 @@ export async function getProfileData(token) {
     headers: { Authorization: "Bearer " + token },
   });
   const body = await res.json();
+  console.log(body);
 
   return {
-    image: body.images[0].url,
+    image:
+      body.images.length > 0
+        ? body.images[0].url
+        : "https://yt3.ggpht.com/iMT9MVrt6qxAfTxeKUX17ESdppsDntW2eA9YvnONcPqxlbdt9SkVhaIRsAtE0PFqRiLA-arexQ=s900-c-k-c0xffffffff-no-rj-mo",
     name: body.display_name,
+
     followers: body.followers.total,
   };
 }

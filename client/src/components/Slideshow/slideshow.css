@@ -34,7 +34,8 @@ li {
 .slideshow {
   scroll-behavior: smooth;
   position: relative;
-  border: 2px solid white;
+  border: 2px none rgba(255, 255, 255, 0.39);
+  border-radius: 2px;
   margin: 5px auto;
   height: 65vh;
   width: 83vw;

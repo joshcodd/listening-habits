@@ -18,7 +18,7 @@ function Slideshow(props) {
 
       <ul className="buttons">
         <li className="upArrow">
-          <a href="#slide1" onClick={handleClickUp}>
+          <a href="#artists" onClick={handleClickUp}>
             <FontAwesomeIcon icon={faReply} size="3x" color="white" />
           </a>
         </li>
@@ -26,7 +26,7 @@ function Slideshow(props) {
         <li className="navigate">Navigate</li>
 
         <li className="downArrow">
-          <a href="#slide2" onClick={handleClickDown}>
+          <a href="#tracks" onClick={handleClickDown}>
             <FontAwesomeIcon icon={faReply} size="3x" color="white" />
           </a>
         </li>

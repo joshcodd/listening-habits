@@ -11,13 +11,9 @@ function SplitButton(props) {
 
   function handleClick(event) {
     let prevSelect = document.getElementById(props.currentSelection).style;
-    prevSelect.backgroundColor = "black";
-    prevSelect.color = "white";
-
+    prevSelect.backgroundColor = "";
+    prevSelect.color = "";
     props.setSelection(event.target.id);
-    let selectedButton = document.getElementById(event.target.id).style;
-    selectedButton.backgroundColor = "white";
-    selectedButton.color = "black";
   }
 
   return (

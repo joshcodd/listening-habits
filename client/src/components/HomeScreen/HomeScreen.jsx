@@ -65,7 +65,7 @@ function HomeScreen(props) {
       </Header>
 
       <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
-        <SlideshowItem id="slide1">
+        <SlideshowItem id="artists">
           {topArtistData === ""
             ? null
             : topArtistData.map((artist, index) => {
@@ -80,7 +80,7 @@ function HomeScreen(props) {
               })}
         </SlideshowItem>
 
-        <SlideshowItem id="slide2">
+        <SlideshowItem id="tracks">
           {topTracksData === ""
             ? null
             : topTracksData.map((track, index) => {

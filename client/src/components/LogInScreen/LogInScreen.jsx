@@ -1,6 +1,5 @@
 import React from "react";
 import "./loginscreen.css";
-import $ from "jquery";
 
 function LogInScreen() {
   return (
