@@ -13,7 +13,7 @@ let redirectURL = process.env.SPOTIFY_REDIRECT_URL_LOCAL;
 let home = "http://localhost:3000/";
 
 if (process.env.NODE_ENV === "production") {
-  redirectURL = process.env.SPOTIFY_REDIRECT_URL_DEPLOYED;
+  redirectURL = "https://radiant-fortress-31626.herokuapp.com/response";
   home = "https://radiant-fortress-31626.herokuapp.com";
 
   // Serve any static files
