@@ -1,7 +1,9 @@
 var cookieParser = require("cookie-parser");
+const path = require("path");
 const express = require("express");
 var request = require("request"); // "Request" library
 const app = express();
+
 app.use(cookieParser());
 require("dotenv").config();
 
@@ -52,9 +54,14 @@ app.get("/response", function (req, res) {
   });
 });
 
-app.get("/", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "./client/public", "index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, "client/build")));
+  // Handle React routing, return all requests to React app
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
 
 app.listen(port, function () {
   console.log("Server running on port 5000.");
