@@ -38,14 +38,14 @@ function HomeScreen(props) {
   async function generate(timeSelection) {
     let timeRange = convertTime(timeSelection);
 
-    let following = await getFollowing(props.token);
-    let profile = await getProfileData(props.token);
+    let following = await getFollowing(document.cookie);
+    let profile = await getProfileData(document.cookie);
     setProfileData({ ...profile, following: following });
 
-    let topArtists = await getTopArtists(props.token, timeRange);
+    let topArtists = await getTopArtists(document.cookie, timeRange);
     setTopArtists(topArtists);
 
-    let topTracks = await getTopTracks(props.token, timeRange);
+    let topTracks = await getTopTracks(document.cookie, timeRange);
     setTopTracks(topTracks);
   }
 
