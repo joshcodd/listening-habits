@@ -53,7 +53,7 @@ app.get("/response", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  res.send("heloooo");
+  res.sendFile(path.resolve(__dirname, "../client/public", "index.html"));
 });
 
 app.listen(port, function () {
