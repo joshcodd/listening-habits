@@ -18,7 +18,7 @@ app.get("/APIlogin", function (req, res) {
       process.env.SPOTIFY_KEY +
       "&response_type=code" +
       "&redirect_uri=" +
-      process.env.SPOTIFY_REDIRECT_URL +
+      process.env.SPOTIFY_REDIRECT_URL_DEPLOYED +
       "&scope=" +
       scope
   );
@@ -32,7 +32,7 @@ app.get("/response", function (req, res) {
     url: "https://accounts.spotify.com/api/token",
     form: {
       code: authorizationCode,
-      redirect_uri: process.env.SPOTIFY_REDIRECT_URL,
+      redirect_uri: process.env.SPOTIFY_REDIRECT_URL_DEPLOYED,
       grant_type: "authorization_code",
     },
     headers: {
