@@ -50,7 +50,7 @@ app.get("/response", function (req, res) {
     var refreshToken = body.refresh_token;
 
     res.cookie("accessToken", accessToken);
-    res.redirect("http://localhost:3000");
+    res.redirect("https://radiant-fortress-31626.herokuapp.com");
   });
 });
 
