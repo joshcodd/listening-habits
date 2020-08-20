@@ -9,6 +9,21 @@ require("dotenv").config();
 
 const port = process.env.PORT || 5000;
 
+let redirectURL = process.env.SPOTIFY_REDIRECT_URL_LOCAL;
+let home = "http://localhost:3000/";
+
+if (process.env.NODE_ENV === "production") {
+  redirectURL = process.env.SPOTIFY_REDIRECT_URL_DEPLOYED;
+  home = "https://radiant-fortress-31626.herokuapp.com";
+
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, "client/build")));
+  // Handle React routing, return all requests to React app
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
+
 //Get spotify authorization code
 app.get("/APIlogin", function (req, res) {
   var scope = "user-top-read user-follow-read";
@@ -18,7 +33,7 @@ app.get("/APIlogin", function (req, res) {
       process.env.SPOTIFY_KEY +
       "&response_type=code" +
       "&redirect_uri=" +
-      "https://radiant-fortress-31626.herokuapp.com/response" +
+      redirectURL +
       "&scope=" +
       scope
   );
@@ -32,7 +47,7 @@ app.get("/response", function (req, res) {
     url: "https://accounts.spotify.com/api/token",
     form: {
       code: authorizationCode,
-      redirect_uri: "https://radiant-fortress-31626.herokuapp.com/response",
+      redirect_uri: redirectURL,
       grant_type: "authorization_code",
     },
     headers: {
@@ -50,18 +65,9 @@ app.get("/response", function (req, res) {
     var refreshToken = body.refresh_token;
 
     res.cookie("accessToken", accessToken);
-    res.redirect("https://radiant-fortress-31626.herokuapp.com");
+    res.redirect(home);
   });
 });
-
-if (process.env.NODE_ENV === "production") {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, "client/build")));
-  // Handle React routing, return all requests to React app
-  app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
-}
 
 app.listen(port, function () {
   console.log("Server running on port 5000.");
