@@ -5,7 +5,7 @@ function Header(props) {
   function handle() {
     document.cookie = "accessToken=";
     console.log(document.cookie);
-    window.location.replace("http://localhost:3000");
+    window.location.replace("https://radiant-fortress-31626.herokuapp.com");
   }
 
   return (
