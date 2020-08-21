@@ -3,13 +3,29 @@ import "./slideshow.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReply } from "@fortawesome/free-solid-svg-icons";
 
+let currentSlide = 0;
+
 function Slideshow(props) {
+  let numberOfSlides = props.children.length - 1;
+
   function handleClickDown() {
-    props.setCurrentView("Tracks");
+    if (currentSlide < numberOfSlides) {
+      currentSlide++;
+    }
+
+    window.location.href = `#${currentSlide}`;
+    const slideTitle = props.children[currentSlide].props.title;
+    props.setCurrentView(slideTitle);
   }
 
   function handleClickUp() {
-    props.setCurrentView("Artists");
+    if (currentSlide > 0) {
+      currentSlide--;
+    }
+    window.location.href = `#${currentSlide}`;
+
+    const slideTitle = props.children[currentSlide].props.title;
+    props.setCurrentView(slideTitle);
   }
 
   return (
@@ -18,7 +34,7 @@ function Slideshow(props) {
 
       <ul className="buttons">
         <li className="upArrow">
-          <a href="#artists" onClick={handleClickUp}>
+          <a href onClick={handleClickUp}>
             <FontAwesomeIcon icon={faReply} size="3x" color="white" />
           </a>
         </li>
@@ -26,7 +42,7 @@ function Slideshow(props) {
         <li className="navigate">Navigate</li>
 
         <li className="downArrow">
-          <a href="#tracks" onClick={handleClickDown}>
+          <a onClick={handleClickDown}>
             <FontAwesomeIcon icon={faReply} size="3x" color="white" />
           </a>
         </li>
