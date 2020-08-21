@@ -5,7 +5,7 @@ function Header(props) {
   function handle() {
     let homeURL = "http://localhost:3000/";
     if (process.env.NODE_ENV === "production") {
-      homeURL = "https://radiant-fortress-31626.herokuapp.com";
+      homeURL = "https://listening-habits.herokuapp.com";
     }
 
     document.cookie = "accessToken=";

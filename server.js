@@ -13,8 +13,8 @@ let home = "http://localhost:3000/";
 
 if (process.env.NODE_ENV === "production") {
   //get env variables to work
-  redirectURL = "https://radiant-fortress-31626.herokuapp.com/response";
-  home = "https://radiant-fortress-31626.herokuapp.com";
+  redirectURL = "https://listening-habits.herokuapp.com/response";
+  home = "https://listening-habits.herokuapp.com";
 
   // Serve any static files
   app.use(express.static(path.join(__dirname, "client/build")));

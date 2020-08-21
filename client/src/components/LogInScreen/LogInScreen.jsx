@@ -4,7 +4,7 @@ import "./loginscreen.css";
 function LogInScreen() {
   let apiLogInURL = "http://localhost:5000/APIlogin";
   if (process.env.NODE_ENV === "production") {
-    apiLogInURL = "https://radiant-fortress-31626.herokuapp.com/APIlogin";
+    apiLogInURL = "https://listening-habits.herokuapp.com/APIlogin";
   }
 
   return (
