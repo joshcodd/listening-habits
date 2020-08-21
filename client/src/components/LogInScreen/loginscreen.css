@@ -22,7 +22,7 @@ body {
 }
 
 .listening {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 60px;
   color: white;
   position: absolute;
@@ -34,7 +34,7 @@ body {
 }
 
 .habits {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 50px;
   color: white;
   opacity: 0.7;
@@ -45,7 +45,7 @@ body {
 
 .logInButton {
   position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 300px;
   height: 40px;
   border-radius: 50px;
@@ -82,4 +82,24 @@ body {
   margin: auto;
   margin-top: 350px;
   text-align: center;
+}
+
+@media only screen and (max-width: 550px) {
+  .title {
+    width: 300px;
+  }
+
+  .listening {
+    font-size: 40px;
+    left: 20vw;
+  }
+
+  .habits {
+    font-size: 30px;
+    left: 58%;
+  }
+
+  .logInButton {
+    width: 200px;
+  }
 }

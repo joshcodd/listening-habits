@@ -77,14 +77,69 @@
   text-align: center;
 }
 
-@media only screen and (device-width: 768px) {
+/* ipad */
+@media only screen and (max-width: 920px) {
   .currentTitle {
-    font-size: 65px;
+    font-size: 60px;
+    width: 320px;
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 750px) {
   .currentTitle {
-    font-size: 15px;
+    font-size: 40px;
+    width: 220px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .currentTitle {
+    font-size: 30px;
+    width: 80px;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 560px) {
+  .currentTitle {
+    position: absolute;
+    left: 100px;
+    top: 60px;
+    font-size: 20px;
+    width: 110px;
+  }
+
+  .profilePicture {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin-left: 6vw;
+    margin-top: 25px;
+  }
+
+  .name {
+    margin-left: 20px;
+    margin-top: 25px;
+  }
+
+  .followBox {
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  .followTitle {
+    font-size: 10px;
+  }
+
+  .followLeft {
+    margin-left: 85px;
+  }
+
+  .logOut {
+    margin-top: 105px;
+    margin-left: 115px;
+    width: 65px;
+
+    text-align: center;
   }
 }

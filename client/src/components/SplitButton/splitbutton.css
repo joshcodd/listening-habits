@@ -31,3 +31,10 @@ button:hover {
 .buttonRight {
   border-radius: 0 50px 50px 0;
 }
+
+@media only screen and (max-width: 560px) {
+  .buttonContainer {
+    left: 95px;
+    top: 130px;
+  }
+}
