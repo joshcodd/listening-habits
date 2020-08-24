@@ -5,7 +5,8 @@ import HomeScreen from "./HomeScreen/HomeScreen";
 function App(props) {
   let token = document.cookie;
   token = token.slice(12, token.length);
-  console.log(token);
+
+  console.log(document.cookie);
 
   return (
     <div className="App">

@@ -20,8 +20,8 @@ function HomeScreen(props) {
     followers: 0,
     following: 0,
   });
-  const [topArtistData, setTopArtists] = useState("");
-  const [topTracksData, setTopTracks] = useState("");
+  const [topArtistData, setTopArtists] = useState([]);
+  const [topTracksData, setTopTracks] = useState([]);
   const [currentView, setCurrentView] = useState("Artists");
   const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
 
@@ -66,33 +66,37 @@ function HomeScreen(props) {
 
       <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
         <SlideshowItem id="0" title="Artists">
-          {topArtistData === ""
-            ? null
-            : topArtistData.map((artist, index) => {
-                return (
-                  <DataBar
-                    key={index}
-                    index={index}
-                    type="artist"
-                    data={artist}
-                  ></DataBar>
-                );
-              })}
+          {topArtistData === "error" ? (
+            <h1 className="error"> Error please try again later </h1>
+          ) : (
+            topArtistData.map((artist, index) => {
+              return (
+                <DataBar
+                  key={index}
+                  index={index}
+                  type="artist"
+                  data={artist}
+                ></DataBar>
+              );
+            })
+          )}
         </SlideshowItem>
 
         <SlideshowItem id="1" title="Tracks">
-          {topTracksData === ""
-            ? null
-            : topTracksData.map((track, index) => {
-                return (
-                  <DataBar
-                    key={index}
-                    index={index}
-                    type="tracks"
-                    data={track}
-                  ></DataBar>
-                );
-              })}
+          {topTracksData === "error" ? (
+            <h1 className="error"> Error please try again later </h1>
+          ) : (
+            topTracksData.map((track, index) => {
+              return (
+                <DataBar
+                  key={index}
+                  index={index}
+                  type="tracks"
+                  data={track}
+                ></DataBar>
+              );
+            })
+          )}
         </SlideshowItem>
 
         <SlideshowItem className="red" title="Genres" id="2" />

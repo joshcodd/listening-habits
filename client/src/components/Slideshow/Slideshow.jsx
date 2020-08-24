@@ -1,7 +1,5 @@
 import React from "react";
 import "./slideshow.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReply } from "@fortawesome/free-solid-svg-icons";
 
 let currentSlide = 0;
 
@@ -33,18 +31,14 @@ function Slideshow(props) {
       <div className="slideshow">{props.children}</div>
 
       <ul className="buttons">
-        <li>
-          <a href onClick={handleClickUp}>
-            <img className="upArrow" src="./upArrow.png" alt="up"></img>
-          </a>
+        <li onClick={handleClickUp}>
+          <img className="upArrow" src="./upArrow.png" alt="up"></img>
         </li>
 
         <li className="navigate">Navigate</li>
 
-        <li>
-          <a onClick={handleClickDown}>
-            <img className="downArrow" src="./downArrow.png" alt="up"></img>
-          </a>
+        <li onClick={handleClickDown}>
+          <img className="downArrow" src="./downArrow.png" alt="up"></img>
         </li>
       </ul>
     </div>
