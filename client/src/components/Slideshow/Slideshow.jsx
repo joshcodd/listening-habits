@@ -33,17 +33,17 @@ function Slideshow(props) {
       <div className="slideshow">{props.children}</div>
 
       <ul className="buttons">
-        <li className="upArrow">
+        <li>
           <a href onClick={handleClickUp}>
-            <FontAwesomeIcon icon={faReply} size="3x" color="white" />
+            <img className="upArrow" src="./upArrow.png" alt="up"></img>
           </a>
         </li>
 
         <li className="navigate">Navigate</li>
 
-        <li className="downArrow">
+        <li>
           <a onClick={handleClickDown}>
-            <FontAwesomeIcon icon={faReply} size="3x" color="white" />
+            <img className="downArrow" src="./downArrow.png" alt="up"></img>
           </a>
         </li>
       </ul>

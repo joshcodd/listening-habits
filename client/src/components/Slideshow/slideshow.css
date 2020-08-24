@@ -4,31 +4,32 @@ li {
 
 .upArrow {
   position: absolute;
-  transform: rotate(80deg);
+  bottom: 80px;
+  height: 70px;
+  width: 70px;
 
-  bottom: 260px;
-  transition: transform 0.5s ease-out;
+  transition: height 0.3s ease-in-out;
 }
-
 .upArrow:hover {
-  transform: rotate(60deg);
+  height: 90px;
 }
 
 .downArrow {
   position: absolute;
-  transform: scaleX(-1) rotate(260deg);
-  bottom: 0px;
-  transition: transform 0.5s ease-out;
+  top: 85px;
+  height: 70px;
+  width: 70px;
+  transition: height 0.3s ease-in-out;
 }
 
 .downArrow:hover {
-  transform: scaleX(-1) rotate(240deg);
+  height: 90px;
 }
 
 .buttons {
   position: absolute;
-  bottom: 17vh;
-  right: 5vw;
+  top: 45vh;
+  right: 75px;
 }
 
 .slideshow {
@@ -52,6 +53,7 @@ li {
   bottom: 142px;
   left: 13px;
   transform: rotate(90deg);
+  display: none;
 }
 
 @keyframes fadein {
