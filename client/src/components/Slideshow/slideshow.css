@@ -11,7 +11,7 @@ li {
   transition: height 0.3s ease-in-out;
 }
 .upArrow:hover {
-  height: 90px;
+  height: 80px;
 }
 
 .downArrow {
@@ -23,7 +23,7 @@ li {
 }
 
 .downArrow:hover {
-  height: 90px;
+  height: 80px;
 }
 
 .buttons {
@@ -42,7 +42,6 @@ li {
   width: 83vw;
   box-sizing: content-box;
   overflow: hidden;
-  animation: fadein 2s;
 }
 
 .navigate {
@@ -54,13 +53,4 @@ li {
   left: 13px;
   transform: rotate(90deg);
   display: none;
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

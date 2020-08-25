@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Slideshow from "../Slideshow/Slideshow";
 import SlideshowItem from "../SlideshowItem/SlideshowItem";
 import DataBar from "../DataBar/DataBar";
+import PopUpInfo from "../PopUpInfo/PopUpInfo";
 import {
   getProfileData,
   getTopArtists,
@@ -24,11 +25,9 @@ function HomeScreen(props) {
   const [topTracksData, setTopTracks] = useState([]);
   const [currentView, setCurrentView] = useState("Artists");
   const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
-
-  useEffect(() => {
-    generate(currentTimeSelection);
-    // eslint-disable-next-line
-  }, []);
+  const [dataClicked, setDataClicked] = useState({
+    isClicked: false,
+  });
 
   useEffect(() => {
     generate(currentTimeSelection);
@@ -51,56 +50,63 @@ function HomeScreen(props) {
 
   return (
     <div className="profile">
-      <Header
-        image={profileData.image}
-        name={profileData.name}
-        followers={profileData.followers}
-        following={profileData.following}
-        currentView={currentView}
-      >
-        <SplitButton
-          currentSelection={currentTimeSelection}
-          setSelection={setCurrentTimeSelection}
-        />
-      </Header>
+      {dataClicked.isClicked === true ? (
+        <PopUpInfo onClick={setDataClicked} data={dataClicked}></PopUpInfo>
+      ) : (
+        <div>
+          <Header
+            image={profileData.image}
+            name={profileData.name}
+            followers={profileData.followers}
+            following={profileData.following}
+            currentView={currentView}
+          >
+            <SplitButton
+              currentSelection={currentTimeSelection}
+              setSelection={setCurrentTimeSelection}
+            />
+          </Header>
+          <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
+            <SlideshowItem id="0" title="Artists">
+              {topArtistData === "error" ? (
+                <h1 className="error"> Error please try again later </h1>
+              ) : (
+                topArtistData.map((artist, index) => {
+                  return (
+                    <DataBar
+                      key={index}
+                      index={index}
+                      type="artist"
+                      data={artist}
+                      onClick={setDataClicked}
+                    ></DataBar>
+                  );
+                })
+              )}
+            </SlideshowItem>
 
-      <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
-        <SlideshowItem id="0" title="Artists">
-          {topArtistData === "error" ? (
-            <h1 className="error"> Error please try again later </h1>
-          ) : (
-            topArtistData.map((artist, index) => {
-              return (
-                <DataBar
-                  key={index}
-                  index={index}
-                  type="artist"
-                  data={artist}
-                ></DataBar>
-              );
-            })
-          )}
-        </SlideshowItem>
+            <SlideshowItem id="1" title="Tracks">
+              {topTracksData === "error" ? (
+                <h1 className="error"> Error please try again later </h1>
+              ) : (
+                topTracksData.map((track, index) => {
+                  return (
+                    <DataBar
+                      key={index}
+                      index={index}
+                      type="tracks"
+                      data={track}
+                      onClick={setDataClicked}
+                    ></DataBar>
+                  );
+                })
+              )}
+            </SlideshowItem>
 
-        <SlideshowItem id="1" title="Tracks">
-          {topTracksData === "error" ? (
-            <h1 className="error"> Error please try again later </h1>
-          ) : (
-            topTracksData.map((track, index) => {
-              return (
-                <DataBar
-                  key={index}
-                  index={index}
-                  type="tracks"
-                  data={track}
-                ></DataBar>
-              );
-            })
-          )}
-        </SlideshowItem>
-
-        <SlideshowItem className="red" title="Genres" id="2" />
-      </Slideshow>
+            <SlideshowItem className="red" title="Genres" id="2" />
+          </Slideshow>{" "}
+        </div>
+      )}
     </div>
   );
 }

@@ -62,9 +62,9 @@ app.get("/response", function (req, res) {
 
   request.post(authOptions, function (error, response, body) {
     var accessToken = body.access_token;
-    var refreshToken = body.refresh_token;
+    // var refreshToken = body.refresh_token;
 
-    res.cookie("accessToken", accessToken, { maxAge: 60000 });
+    res.cookie("accessToken", accessToken, { maxAge: 60000 * 60 });
     res.redirect(home);
   });
 });

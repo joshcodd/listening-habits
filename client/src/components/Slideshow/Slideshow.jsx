@@ -32,13 +32,17 @@ function Slideshow(props) {
 
       <ul className="buttons">
         <li onClick={handleClickUp}>
-          <img className="upArrow" src="./upArrow.png" alt="up"></img>
+          <img className="upArrow" src="./upArrow.png" alt="Up Arrow"></img>
         </li>
 
         <li className="navigate">Navigate</li>
 
         <li onClick={handleClickDown}>
-          <img className="downArrow" src="./downArrow.png" alt="up"></img>
+          <img
+            className="downArrow"
+            src="./downArrow.png"
+            alt="down arrow"
+          ></img>
         </li>
       </ul>
     </div>

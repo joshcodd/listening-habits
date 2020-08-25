@@ -9,6 +9,17 @@
   box-sizing: border-box;
 }
 
+.databar:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.databar:hover .data {
+  color: white;
+}
+.databar:hover .trackArtist {
+  color: white;
+}
+
 .index {
   width: 50px;
   font-family: "Roboto", sans-serif;
@@ -27,7 +38,7 @@
   font-family: "Roboto", sans-serif;
   color: rgba(255, 255, 255, 0.39);
   font-size: 16px;
-  margin: 10px 15px 0 15px;
+  margin: 5px 15px 0 15px;
 }
 
 .trackImage {
