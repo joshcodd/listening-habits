@@ -11,6 +11,7 @@ import {
   getTopTracks,
   getFollowing,
   convertTime,
+  getTopGenres,
 } from "../../spotifyAPI";
 import SplitButton from "../SplitButton/SplitButton";
 
@@ -51,6 +52,8 @@ function HomeScreen(props) {
 
     let topTracks = await getTopTracks(props.token, timeRange);
     setTopTracks(topTracks);
+
+    let topGenres = await getTopGenres(props.token, timeRange);
   }
 
   return (
