@@ -10,25 +10,21 @@ function Slideshow(props) {
     if (currentSlide < numberOfSlides) {
       currentSlide++;
     }
-
-    window.location.href = `#${currentSlide}`;
     const slideTitle = props.children[currentSlide].props.title;
-    props.setCurrentView(slideTitle);
+    props.setCurrentView({ title: slideTitle, slide: currentSlide });
   }
 
   function handleClickUp() {
     if (currentSlide > 0) {
       currentSlide--;
     }
-    window.location.href = `#${currentSlide}`;
-
     const slideTitle = props.children[currentSlide].props.title;
-    props.setCurrentView(slideTitle);
+    props.setCurrentView({ title: slideTitle, slide: currentSlide });
   }
 
   return (
     <div>
-      <div className="slideshow">{props.children}</div>
+      <div className="slideshow">{props.children} </div>
 
       <ul className="buttons">
         <li onClick={handleClickUp}>

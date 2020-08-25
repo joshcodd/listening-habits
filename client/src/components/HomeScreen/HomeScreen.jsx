@@ -16,18 +16,23 @@ import SplitButton from "../SplitButton/SplitButton";
 
 function HomeScreen(props) {
   const [profileData, setProfileData] = useState({
-    image: "",
-    name: "",
+    image:
+      "https://yt3.ggpht.com/iMT9MVrt6qxAfTxeKUX17ESdppsDntW2eA9YvnONcPqxlbdt9SkVhaIRsAtE0PFqRiLA-arexQ=s900-c-k-c0xffffffff-no-rj-mo",
     followers: 0,
     following: 0,
   });
+  const [currentView, setCurrentView] = useState({
+    title: "Artists",
+    slide: 0,
+  });
+  const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
+  const [dataClicked, setDataClicked] = useState(false);
   const [topArtistData, setTopArtists] = useState([]);
   const [topTracksData, setTopTracks] = useState([]);
-  const [currentView, setCurrentView] = useState("Artists");
-  const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
-  const [dataClicked, setDataClicked] = useState({
-    isClicked: false,
-  });
+
+  useEffect(() => {
+    window.location.href = `#${currentView.slide}`;
+  }, [currentView, dataClicked]);
 
   useEffect(() => {
     generate(currentTimeSelection);

@@ -13,7 +13,9 @@ function PopUpInfo(props) {
         <img
           className="backArrow"
           src="./backArrow.png"
-          onClick={() => props.onClick(false)}
+          onClick={() => {
+            props.onClick(false);
+          }}
           alt="Back Arrow"
         />
       </div>

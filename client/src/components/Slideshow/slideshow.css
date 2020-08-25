@@ -33,7 +33,7 @@ li {
 }
 
 .slideshow {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   position: relative;
   border: 2px none rgba(255, 255, 255, 0.39);
   border-radius: 2px;
