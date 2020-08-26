@@ -4,6 +4,7 @@
   height: 350px;
   left: -150px;
   top: 40px;
+  opacity: 0.8;
 }
 
 .key {
@@ -12,6 +13,7 @@
   height: 300px;
   left: 500px;
   top: -280px;
+  opacity: 0.8;
 }
 
 .keySection {

@@ -23,7 +23,9 @@ export async function getProfileData(token) {
   const res = await fetch("https://api.spotify.com/v1/me", {
     headers: { Authorization: "Bearer " + token },
   });
+
   const body = await res.json();
+
   if (res.ok) {
     return {
       image: body.images.length > 0 ? body.images[0].url : "/placeholder.jpg",
@@ -49,6 +51,7 @@ export async function getFollowing(token) {
   );
 
   const body = await res.json();
+
   if (res.ok) {
     return body.artists.total;
   } else {
@@ -62,6 +65,7 @@ export async function getTopArtists(token, timeRange) {
     `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=${resultLimit}&offset=0`,
     { headers: { Authorization: "Bearer " + token } }
   );
+
   const topData = await res.json();
 
   if (res.ok) {

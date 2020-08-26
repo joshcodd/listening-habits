@@ -8,7 +8,6 @@ function Header(props) {
     if (process.env.NODE_ENV === "production") {
       homeURL = "https://listening-habits.herokuapp.com";
     }
-
     document.cookie = "accessToken=";
     window.location.replace(homeURL);
   }

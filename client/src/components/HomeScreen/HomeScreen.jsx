@@ -62,7 +62,9 @@ function HomeScreen(props) {
     setTopGenres(topGenres);
   }
 
-  //Return pop up information if has been requested, homepage (header + slideshow) if not.
+  // Return pop up information if has been requested, homepage (header + slideshow) if not.
+  // When displaying data within slideshow item, if API call returns error then error message is displayed.
+  // Furthermore, if the data has length of 0 then no data message is displayed.
   return (
     <div className="homeContainer">
       {showMoreInfo.isClicked === true ? (
@@ -84,7 +86,9 @@ function HomeScreen(props) {
           <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
             <SlideshowItem id="0" title="Artists">
               {topArtistData === "error" ? (
-                <h1 className="error"> Error please try again later </h1>
+                <h1 className="message error">Error please try again later.</h1>
+              ) : topArtistData.length === 0 ? (
+                <h1 className="message noData"> No data to show. </h1>
               ) : (
                 topArtistData.map((artist, index) => {
                   return (
@@ -102,7 +106,9 @@ function HomeScreen(props) {
 
             <SlideshowItem id="1" title="Tracks">
               {topTracksData === "error" ? (
-                <h1 className="error"> Error please try again later </h1>
+                <h1 className="message error">Error please try again later.</h1>
+              ) : topTracksData.length === 0 ? (
+                <h1 className="message noData"> No data to show. </h1>
               ) : (
                 topTracksData.map((track, index) => {
                   return (
@@ -119,7 +125,13 @@ function HomeScreen(props) {
             </SlideshowItem>
 
             <SlideshowItem id="2" title="Genres">
-              <PieChart data={topGenres} />
+              {topGenres === "error" ? (
+                <h1 className="message error">Error please try again later</h1>
+              ) : topGenres.length === 0 ? (
+                <h1 className="message noData"> No data to show. </h1>
+              ) : (
+                <PieChart data={topGenres} />
+              )}
             </SlideshowItem>
           </Slideshow>
         </div>

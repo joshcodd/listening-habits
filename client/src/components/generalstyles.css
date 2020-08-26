@@ -10,6 +10,12 @@ button:hover {
   color: black;
 }
 
+button:active,
+button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 li {
   list-style: none;
 }
