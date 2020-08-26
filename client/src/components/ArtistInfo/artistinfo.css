@@ -6,15 +6,15 @@
 .spotifyLinkArtist {
   position: relative;
   bottom: -5vh;
-  font-weight: 1;
+  font-weight: 200;
   padding: 10px 50px 10px 50px;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   border-radius: 50px;
   text-decoration: none;
-  color: white;
+  color: #ffffff;
 }
 
 .spotifyLinkArtist:hover {
   color: black;
-  background-color: white;
+  background-color: #ffffff;
 }

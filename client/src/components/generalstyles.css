@@ -1,12 +1,12 @@
 button {
-  border: 1px solid white;
+  border: 1px solid #ffffff;
   margin: 0;
   background: none;
-  color: white;
+  color: #ffffff;
 }
 
 button:hover {
-  background: white;
+  background: #ffffff;
   color: black;
 }
 
@@ -43,8 +43,8 @@ li {
 }
 
 .text {
-  font-weight: 1;
-  color: rgb(139, 139, 139);
+  font-weight: 300;
+  color: #8f9291;
   font-size: 18px;
   margin: 1px;
 }

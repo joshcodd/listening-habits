@@ -24,19 +24,19 @@
   display: inline-block;
   margin: 70px 0 0 35px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.521);
+  color: #8f9291;
 }
 
 .followTitle {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2px;
 }
 
 .followCount {
   margin-top: 0px;
   font-size: 14px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .followCountRight {
