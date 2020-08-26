@@ -28,13 +28,13 @@ export async function getProfileData(token) {
 
   if (res.ok) {
     return {
-      image: body.images.length > 0 ? body.images[0].url : "/placeholder.jpg",
+      image: body.images.length > 0 ? body.images[0].url : "/placeholder.png",
       name: body.display_name,
       followers: body.followers.total,
     };
   } else {
     return {
-      image: "/placeholder.jpg",
+      image: "/placeholder.png",
       name: "",
       followers: "error",
     };

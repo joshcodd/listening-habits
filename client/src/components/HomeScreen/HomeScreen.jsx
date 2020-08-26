@@ -19,7 +19,7 @@ import {
 function HomeScreen(props) {
   const accessToken = props.token;
   const [profileData, setProfileData] = useState({
-    image: "/placeholder.jpg",
+    image: "/placeholder.png",
     followers: 0,
     following: 0,
   });

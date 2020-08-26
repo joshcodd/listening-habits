@@ -1,9 +1,9 @@
 # Listening Habits
 
 React application that utalizes the Spotify Web API, to view your top artist, tracks
-and genres. <br>
+and genres. <br/>
 Access at: <https://listening-habits.herokuapp.com>
-(May take a minute due to Heroku.)
+(May take a minute due to Heroku)
 
 ## What did i learn?
 
