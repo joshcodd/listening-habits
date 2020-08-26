@@ -1,8 +1,9 @@
 import React from "react";
 import "./header.css";
+import "../generalstyles.css";
 
 function Header(props) {
-  function handle() {
+  function handleLogOut() {
     let homeURL = "http://localhost:3000/";
     if (process.env.NODE_ENV === "production") {
       homeURL = "https://listening-habits.herokuapp.com";
@@ -13,21 +14,21 @@ function Header(props) {
   }
 
   return (
-    <div className="header">
+    <div>
       <div className="profileContainer">
         <img className="profilePicture" src={props.image} alt="profile" />
 
         <h1 className="name">{props.name}</h1>
-        <div className="followBox followLeft">
+        <div className="followBox followCountRight">
           <h1 className="followTitle">Following</h1>
-          <h1 className="follow">{props.following}</h1>
+          <h1 className="followCount">{props.following}</h1>
         </div>
 
         <div className="followBox ">
           <h1 className="followTitle">Followers</h1>
-          <h1 className="follow">{props.followers}</h1>
+          <h1 className="followCount">{props.followers}</h1>
         </div>
-        <button className="logOut" onClick={handle}>
+        <button className="logOut" onClick={handleLogOut}>
           Log Out
         </button>
       </div>

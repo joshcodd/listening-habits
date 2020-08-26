@@ -5,6 +5,8 @@ import Slideshow from "../Slideshow/Slideshow";
 import SlideshowItem from "../SlideshowItem/SlideshowItem";
 import DataBar from "../DataBar/DataBar";
 import PopUpInfo from "../PopUpInfo/PopUpInfo";
+import SplitButton from "../SplitButton/SplitButton";
+import PieChart from "../PieChart/PieChart";
 import {
   getProfileData,
   getTopArtists,
@@ -13,13 +15,11 @@ import {
   convertTime,
   getTopGenres,
 } from "../../spotifyAPI";
-import SplitButton from "../SplitButton/SplitButton";
-import PieChart from "../PieChart/PieChart";
 
 function HomeScreen(props) {
+  const accessToken = props.token;
   const [profileData, setProfileData] = useState({
-    image:
-      "https://yt3.ggpht.com/iMT9MVrt6qxAfTxeKUX17ESdppsDntW2eA9YvnONcPqxlbdt9SkVhaIRsAtE0PFqRiLA-arexQ=s900-c-k-c0xffffffff-no-rj-mo",
+    image: "/placeholder.jpg",
     followers: 0,
     following: 0,
   });
@@ -28,41 +28,45 @@ function HomeScreen(props) {
     slide: 0,
   });
   const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
-  const [dataClicked, setDataClicked] = useState(false);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [topArtistData, setTopArtists] = useState([]);
   const [topTracksData, setTopTracks] = useState([]);
   const [topGenres, setTopGenres] = useState([]);
 
+  //Display current slide
   useEffect(() => {
     window.location.href = `#${currentView.slide}`;
-  }, [currentView, dataClicked]);
+  }, [currentView, showMoreInfo]);
 
+  //Get data from Spotify API on split button change.
   useEffect(() => {
-    generate(currentTimeSelection);
+    getSpotifyData();
     // eslint-disable-next-line
   }, [currentTimeSelection]);
 
-  async function generate(timeSelection) {
-    let timeRange = convertTime(timeSelection);
+  //Get all spotify data and set result as state.
+  async function getSpotifyData() {
+    let timeRange = convertTime(currentTimeSelection);
 
-    let following = await getFollowing(props.token);
-    let profile = await getProfileData(props.token);
+    let following = await getFollowing(accessToken);
+    let profile = await getProfileData(accessToken);
     setProfileData({ ...profile, following: following });
 
-    let topArtists = await getTopArtists(props.token, timeRange);
+    let topArtists = await getTopArtists(accessToken, timeRange);
     setTopArtists(topArtists);
 
-    let topTracks = await getTopTracks(props.token, timeRange);
+    let topTracks = await getTopTracks(accessToken, timeRange);
     setTopTracks(topTracks);
 
-    let topGenres = await getTopGenres(props.token, timeRange);
+    let topGenres = await getTopGenres(accessToken, timeRange);
     setTopGenres(topGenres);
   }
 
+  //Return pop up information if has been requested, homepage (header + slideshow) if not.
   return (
-    <div className="profile">
-      {dataClicked.isClicked === true ? (
-        <PopUpInfo onClick={setDataClicked} data={dataClicked}></PopUpInfo>
+    <div className="homeContainer">
+      {showMoreInfo.isClicked === true ? (
+        <PopUpInfo onClick={setShowMoreInfo} data={showMoreInfo}></PopUpInfo>
       ) : (
         <div>
           <Header
@@ -89,7 +93,7 @@ function HomeScreen(props) {
                       index={index}
                       type="artist"
                       data={artist}
-                      onClick={setDataClicked}
+                      onClick={setShowMoreInfo}
                     ></DataBar>
                   );
                 })
@@ -107,7 +111,7 @@ function HomeScreen(props) {
                       index={index}
                       type="tracks"
                       data={track}
-                      onClick={setDataClicked}
+                      onClick={setShowMoreInfo}
                     ></DataBar>
                   );
                 })

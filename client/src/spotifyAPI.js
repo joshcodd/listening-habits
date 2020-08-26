@@ -1,5 +1,6 @@
 let resultLimit = 10;
 
+//Convert split button state into time range for Spotify API
 export function convertTime(time) {
   switch (time) {
     case "4 Weeks":
@@ -17,6 +18,7 @@ export function convertTime(time) {
   }
 }
 
+//Profile data
 export async function getProfileData(token) {
   const res = await fetch("https://api.spotify.com/v1/me", {
     headers: { Authorization: "Bearer " + token },
@@ -24,25 +26,20 @@ export async function getProfileData(token) {
   const body = await res.json();
   if (res.ok) {
     return {
-      image:
-        body.images.length > 0
-          ? body.images[0].url
-          : "https://yt3.ggpht.com/iMT9MVrt6qxAfTxeKUX17ESdppsDntW2eA9YvnONcPqxlbdt9SkVhaIRsAtE0PFqRiLA-arexQ=s900-c-k-c0xffffffff-no-rj-mo",
+      image: body.images.length > 0 ? body.images[0].url : "/placeholder.jpg",
       name: body.display_name,
-
       followers: body.followers.total,
     };
   } else {
     return {
-      image:
-        "https://yt3.ggpht.com/iMT9MVrt6qxAfTxeKUX17ESdppsDntW2eA9YvnONcPqxlbdt9SkVhaIRsAtE0PFqRiLA-arexQ=s900-c-k-c0xffffffff-no-rj-mo",
+      image: "/placeholder.jpg",
       name: "",
-
       followers: "error",
     };
   }
 }
 
+//Following number
 export async function getFollowing(token) {
   const res = await fetch(
     "https://api.spotify.com/v1/me/following?type=artist",
@@ -59,6 +56,7 @@ export async function getFollowing(token) {
   }
 }
 
+//Top artists
 export async function getTopArtists(token, timeRange) {
   const res = await fetch(
     `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=${resultLimit}&offset=0`,
@@ -73,6 +71,7 @@ export async function getTopArtists(token, timeRange) {
   }
 }
 
+//Top tracks
 export async function getTopTracks(token, timeRange) {
   const res = await fetch(
     `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=${resultLimit}&offset=0`,
@@ -87,6 +86,7 @@ export async function getTopTracks(token, timeRange) {
   }
 }
 
+//Top genres
 export async function getTopGenres(token, timeRange) {
   resultLimit = 50;
   let genres = [];

@@ -22,20 +22,16 @@
 
 .index {
   width: 50px;
-  font-family: "Roboto", sans-serif;
   color: rgba(255, 255, 255, 0.39);
   font-size: 30px;
   margin: 0 15px;
 }
 
 .data {
-  font-family: "Roboto", sans-serif;
-  color: white;
   font-size: 20px;
 }
 
 .trackArtist {
-  font-family: "Roboto", sans-serif;
   color: rgba(255, 255, 255, 0.39);
   font-size: 16px;
   margin: 5px 15px 0 15px;
@@ -64,8 +60,7 @@
     margin: 5px 15px 0 5px;
   }
   .artistImage {
-    margin-right: 10px;
-    margin-left: 0px;
+    margin: 0 0 0 10px;
   }
 
   .trackImage {

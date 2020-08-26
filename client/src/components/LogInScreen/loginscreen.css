@@ -1,30 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&family=Trade+Winds&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ruthie&display=swap");
-html {
-  margin: 0;
-  background-image: url("./backgmed.jpg");
-  background-size: 100% 100vh;
-  height: 100%;
-  width: 100%;
-  display: inline-block;
-  overflow: hidden;
-}
-body {
-  margin: 0;
-  /* background-image: url("./image-from-rawpixel-id-2421445-original.jpg"); */
-  background-color: rgba(0, 0, 0, 0.247);
-  background-size: 100% 100vh;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  overflow: hidden;
-}
-
 .listening {
-  font-family: "Roboto", sans-serif;
   font-size: 60px;
-  color: white;
   position: relative;
   opacity: 0.7;
   top: -510px;
@@ -32,9 +7,7 @@ body {
 }
 
 .habits {
-  font-family: "Roboto", sans-serif;
   font-size: 50px;
-  color: white;
   opacity: 0.7;
   position: relative;
   top: -570px;
@@ -43,7 +16,6 @@ body {
 
 .logInButton {
   position: relative;
-  font-family: "Roboto", sans-serif;
   width: 300px;
   height: 40px;
   border-radius: 50px;

@@ -3,7 +3,7 @@ import "./slideshowitem.css";
 
 function SlideshowItem(props) {
   return (
-    <div className={"item " + props.className} id={props.id}>
+    <div className={"slideShowItem " + props.className} id={props.id}>
       {props.children}
     </div>
   );

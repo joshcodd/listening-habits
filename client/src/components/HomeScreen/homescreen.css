@@ -1,4 +1,4 @@
-.profile {
+.homeContainer {
   position: relative;
   height: 90vh;
   width: 95vw;
@@ -7,9 +7,7 @@
 }
 
 .error {
-  font-family: "Roboto", sans-serif;
   position: relative;
-  color: white;
   font-size: 30px;
   top: 20vh;
   width: 360px;

@@ -6,6 +6,7 @@ let currentSlide = 0;
 function Slideshow(props) {
   let numberOfSlides = props.children.length - 1;
 
+  //Move to next slide if there is one.
   function handleClickDown() {
     if (currentSlide < numberOfSlides) {
       currentSlide++;
@@ -14,6 +15,7 @@ function Slideshow(props) {
     props.setCurrentView({ title: slideTitle, slide: currentSlide });
   }
 
+  //Move to previous slide if there is one.
   function handleClickUp() {
     if (currentSlide > 0) {
       currentSlide--;
@@ -24,18 +26,20 @@ function Slideshow(props) {
 
   return (
     <div>
-      <div className="slideshow">{props.children} </div>
+      <div className="slideshow">{props.children}</div>
 
-      <ul className="buttons">
+      <ul className="slideShowButtons">
         <li onClick={handleClickUp}>
-          <img className="upArrow" src="./upArrow.png" alt="Up Arrow"></img>
+          <img
+            className="arrow upArrow"
+            src="./upArrow.png"
+            alt="Up Arrow"
+          ></img>
         </li>
-
-        <li className="navigate">Navigate</li>
 
         <li onClick={handleClickDown}>
           <img
-            className="downArrow"
+            className="arrow downArrow"
             src="./downArrow.png"
             alt="down arrow"
           ></img>

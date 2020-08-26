@@ -1,22 +1,8 @@
-.buttonContainer {
+.splitButtonContainer {
   position: absolute;
-  display: inline-flex;
+  display: inline-block;
   right: 6vw;
   top: 130px;
-  color: white;
-  font-family: "Roboto", sans-serif;
-}
-
-button {
-  border: 1px solid white;
-  margin: 0;
-  background: none;
-  color: white;
-}
-
-button:hover {
-  background: white;
-  color: black;
 }
 
 .buttonActive {
@@ -33,7 +19,7 @@ button:hover {
 }
 
 @media only screen and (max-width: 560px) {
-  .buttonContainer {
+  .splitButtonContainer {
     left: 95px;
     top: 130px;
   }

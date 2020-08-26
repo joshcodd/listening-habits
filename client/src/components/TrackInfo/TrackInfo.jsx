@@ -1,10 +1,11 @@
 import React from "react";
 import "./trackinfo.css";
+import "../generalstyles.css";
 
 function TrackInfo(props) {
   const trackData = props.track;
   return (
-    <div className="container">
+    <div className="infoContainer">
       <img
         className="spotifyImage"
         src={trackData.album.images[0].url}
@@ -13,20 +14,20 @@ function TrackInfo(props) {
 
       <h1 className="dataTitle"> {trackData.name} </h1>
 
-      <div className="smallContainer">
-        <div className="by">
+      <div className="trackInfoContainer">
+        <div className="trackSection">
           <h1 className="subtitle">By</h1>
-          <h1 className="small">{trackData.album.artists[0].name}</h1>
+          <h1 className="text">{trackData.album.artists[0].name}</h1>
         </div>
 
-        <div className="from">
+        <div className="trackSection">
           <h1 className="subtitle">From</h1>
-          <h1 className="small">{trackData.album.name}</h1>
+          <h1 className="text">{trackData.album.name}</h1>
         </div>
 
-        <div className="popularity">
+        <div className="trackSection">
           <h1 className="subtitle">Popularity</h1>
-          <h1 className="small">{trackData.popularity}</h1>
+          <h1 className="text">{trackData.popularity}</h1>
         </div>
       </div>
 

@@ -1,89 +1,20 @@
-.spotifyImage {
-  position: relative;
-  top: 35px;
-  width: 220px;
-  height: 220px;
-  margin: 20px auto;
-}
-
-.dataTitle {
-  margin: 40px 0 auto auto;
-  font-family: "Roboto", sans-serif;
-  color: white;
-}
-
-.subtitle {
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 3px;
-  font-weight: 400;
-  color: rgb(223, 221, 221);
-  font-size: 15px;
-}
-
-.followers {
+.artistSection {
   width: 140px;
   display: inline-block;
-}
-
-.popularity {
-  width: 140px;
-  display: inline-block;
-}
-
-.large {
-  font-family: "Roboto", sans-serif;
-  font-weight: 1;
-  color: rgb(139, 139, 139);
-  font-size: 25px;
-}
-
-.genre {
-  font-family: "Roboto", sans-serif;
-  font-weight: 1;
-  color: rgb(139, 139, 139);
-  font-size: 15px;
-  margin: 1px;
 }
 
 .spotifyLinkArtist {
   position: relative;
   bottom: -5vh;
-  font-family: "Roboto", sans-serif;
-  color: white;
   font-weight: 1;
   padding: 10px 50px 10px 50px;
   border: 2px solid white;
   border-radius: 50px;
   text-decoration: none;
+  color: white;
 }
 
 .spotifyLinkArtist:hover {
   color: black;
   background-color: white;
-}
-
-@media only screen and (max-height: 700px) {
-  .spotifyLinkArtist {
-    bottom: -5vh;
-  }
-
-  .spotifyImage {
-    top: 25px;
-    width: 180px;
-    height: 180px;
-  }
-
-  .dataTitle {
-    margin: 20px 0 auto auto;
-    font-size: 20px;
-  }
-
-  .subtitle {
-    margin-bottom: 1px;
-    font-size: 10px;
-  }
-
-  .large {
-    font-size: 15px;
-  }
 }

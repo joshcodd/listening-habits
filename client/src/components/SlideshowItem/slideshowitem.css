@@ -1,14 +1,5 @@
-.item {
+.slideShowItem {
   position: relative;
   height: 100%;
   width: 100%;
-  margin: 0px;
-}
-
-.red {
-  background-color: rgba(184, 15, 15, 0.267);
-}
-
-.blue {
-  background-color: rgba(0, 0, 255, 0);
 }

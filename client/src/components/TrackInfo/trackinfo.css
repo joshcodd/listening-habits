@@ -1,32 +1,8 @@
-.by {
+.trackSection {
   width: 200px;
 }
 
-.from {
-  width: 200px;
-}
-
-.popularity {
-  width: 200px;
-}
-
-.small {
-  font-family: "Roboto", sans-serif;
-  font-weight: 1;
-  color: rgb(139, 139, 139);
-  font-size: 18px;
-  margin: 0px;
-}
-
-.subtitle {
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 3px;
-  font-weight: 400;
-  color: rgb(223, 221, 221);
-  font-size: 14px;
-}
-
-.smallContainer {
+.trackInfoContainer {
   display: flex;
   justify-content: space-evenly;
 }
@@ -34,13 +10,12 @@
 .spotifyLinkTrack {
   position: relative;
   top: 10vh;
-  font-family: "Roboto", sans-serif;
-  color: white;
   font-weight: 1;
   padding: 10px 50px 10px 50px;
   border: 2px solid white;
   border-radius: 50px;
   text-decoration: none;
+  color: white;
 }
 
 .spotifyLinkTrack:hover {

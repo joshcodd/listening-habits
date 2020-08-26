@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./splitbutton.css";
+import "../generalstyles.css";
 
 function SplitButton(props) {
   //Set button selected initially on mount
@@ -9,6 +10,7 @@ function SplitButton(props) {
     selectedButton.color = "black";
   });
 
+  //Set current selection to section clicked and re-set prev sections colour.
   function handleClick(event) {
     let prevSelect = document.getElementById(props.currentSelection).style;
     prevSelect.backgroundColor = "";
@@ -17,7 +19,7 @@ function SplitButton(props) {
   }
 
   return (
-    <div className="buttonContainer">
+    <div className="splitButtonContainer">
       <button className={"buttonLeft"} onClick={handleClick} id="4 Weeks">
         4 Weeks
       </button>

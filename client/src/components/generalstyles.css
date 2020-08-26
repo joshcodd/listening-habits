@@ -1,0 +1,66 @@
+button {
+  border: 1px solid white;
+  margin: 0;
+  background: none;
+  color: white;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.infoContainer {
+  text-align: center;
+}
+
+.spotifyImage {
+  position: relative;
+  top: 35px;
+  width: 220px;
+  height: 220px;
+  margin: 20px auto;
+}
+
+.dataTitle {
+  margin: 40px 0 auto auto;
+}
+
+.subtitle {
+  margin-bottom: 3px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.text {
+  font-weight: 1;
+  color: rgb(139, 139, 139);
+  font-size: 18px;
+  margin: 1px;
+}
+
+@media only screen and (max-height: 500px) {
+  .spotifyLinkArtist {
+    bottom: -5vh;
+  }
+
+  .spotifyImage {
+    top: 25px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .dataTitle {
+    margin: 20px 0 auto auto;
+    font-size: 20px;
+  }
+
+  .subtitle {
+    margin-bottom: 1px;
+    font-size: 10px;
+  }
+}
