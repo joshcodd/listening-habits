@@ -59,6 +59,7 @@
 
 @media only screen and (max-width: 420px) {
   .pieContainer {
+    width: 400px;
     height: 200px;
     left: -50px;
     top: 20px;

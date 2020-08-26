@@ -5,7 +5,6 @@ let currentSlide = 0;
 
 function Slideshow(props) {
   let numberOfSlides = props.children.length - 1;
-  console.log(numberOfSlides);
 
   function handleClickDown() {
     if (currentSlide < numberOfSlides) {

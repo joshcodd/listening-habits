@@ -67,7 +67,6 @@ export async function getTopArtists(token, timeRange) {
   const topData = await res.json();
 
   if (res.ok) {
-    console.log(topData.items);
     return topData.items;
   } else {
     return "error";
@@ -82,7 +81,6 @@ export async function getTopTracks(token, timeRange) {
   const topData = await res.json();
 
   if (res.ok) {
-    console.log(topData.items);
     return topData.items;
   } else {
     return "error";
@@ -93,6 +91,7 @@ export async function getTopGenres(token, timeRange) {
   resultLimit = 50;
   let genres = [];
   let topArtists = await getTopArtists(token, timeRange);
+  resultLimit = 10;
 
   if (topArtists !== "error") {
     topArtists.forEach((artist) => {
