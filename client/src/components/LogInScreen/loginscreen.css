@@ -37,17 +37,13 @@
   width: 500px;
   height: 350px;
   position: relative;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   top: -220px;
   border-radius: 10px;
 }
 
-.LogIn {
-  margin: auto;
-  margin-top: 350px;
+.logInContainer {
+  margin: 350px auto;
   text-align: center;
 }
 

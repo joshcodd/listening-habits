@@ -8,7 +8,7 @@ function LogInScreen() {
   }
 
   return (
-    <div className="LogIn">
+    <div className="logInContainer">
       <div className="title"></div>
       <h1 className="listening"> Listening </h1>
       <h1 className="habits"> Habits </h1>
