@@ -2,20 +2,20 @@
 
 React application that utalizes the Spotify Web API, to view your top artist, tracks
 and genres.
-Access at: <https://joshcodd.github.io/sorting-visualizer/>
+Access at: <https://listening-habits.herokuapp.com>
+(May take a minute due to Heroku.)
 
 ## What did i learn?
 
 - Practiced further with API's.
-- Practiced further with OAUTH2.
+- Practiced further with OAuth2.
 
 ## More...
 
-To run on your own machine, navigate to the root folder and run :
+To run on your own machine, navigate to the root folder and run:
 
 ### `node server.js`
 
-This starts the server.<br />
 Then navigate to the client directory:
 
 ### `cd client`
