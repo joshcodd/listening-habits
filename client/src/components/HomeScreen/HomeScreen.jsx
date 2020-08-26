@@ -14,6 +14,7 @@ import {
   getTopGenres,
 } from "../../spotifyAPI";
 import SplitButton from "../SplitButton/SplitButton";
+import PieChart from "../PieChart/PieChart";
 
 function HomeScreen(props) {
   const [profileData, setProfileData] = useState({
@@ -30,6 +31,7 @@ function HomeScreen(props) {
   const [dataClicked, setDataClicked] = useState(false);
   const [topArtistData, setTopArtists] = useState([]);
   const [topTracksData, setTopTracks] = useState([]);
+  const [topGenres, setTopGenres] = useState([]);
 
   useEffect(() => {
     window.location.href = `#${currentView.slide}`;
@@ -54,6 +56,7 @@ function HomeScreen(props) {
     setTopTracks(topTracks);
 
     let topGenres = await getTopGenres(props.token, timeRange);
+    setTopGenres(topGenres);
   }
 
   return (
@@ -111,8 +114,10 @@ function HomeScreen(props) {
               )}
             </SlideshowItem>
 
-            <SlideshowItem className="red" title="Genres" id="2" />
-          </Slideshow>{" "}
+            <SlideshowItem id="2" title="Genres">
+              <PieChart data={topGenres} />
+            </SlideshowItem>
+          </Slideshow>
         </div>
       )}
     </div>

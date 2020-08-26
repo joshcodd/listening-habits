@@ -111,10 +111,10 @@ export async function getTopGenres(token, timeRange) {
 
     genreCount = Object.entries(genreCount);
     genreCount = genreCount.sort(function (a, b) {
-      return a[1] - b[1];
+      return b[1] - a[1];
     });
 
-    return genreCount;
+    return genreCount.slice(0, 10);
   } else {
     return "error";
   }
