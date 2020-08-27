@@ -7,6 +7,7 @@ Access at: <https://listening-habits.herokuapp.com>
 
 ## What did i learn?
 
+- Using cookies
 - Practiced further with API's.
 - Practiced further with OAuth2.
 
