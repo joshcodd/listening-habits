@@ -13,14 +13,14 @@ Access at: <https://listening-habits.herokuapp.com>
 
 ## More...
 
-To run on your own machine you will have to create a app at: <https://developer.spotify.com/dashboard/login> Set the re-direct URI to: http://localhost:5000/response
+To run on your own machine you will have to create a app at: <https://developer.spotify.com/dashboard/login> <br> Set the re-direct URI to: http://localhost:5000/response
 
 In the root of the project create a .env file with the following variables: <br/>
 
 ```
-SPOTIFY_KEY=`<Your Spotify client ID>` <br/>
+SPOTIFY_KEY=<Your Spotify client ID>
 
-SPOTIFY_SECRET=`<Your Spotify client Secret>` <br/>
+SPOTIFY_SECRET=<Your Spotify client secret>
 
 SPOTIFY_REDIRECT_URL_LOCAL=http://localhost:5000/response
 
