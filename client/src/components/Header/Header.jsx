@@ -32,7 +32,7 @@ function Header(props) {
         </button>
       </div>
 
-      <h1 className="currentTitle">Top {props.currentView.title}</h1>
+      <h1 className="currentTitle">Top {props.currentTitle}</h1>
       {props.children}
     </div>
   );

@@ -23,17 +23,17 @@ function HomeScreen(props) {
     following: 0,
     followers: 0,
   };
-  const [currentView, setCurrentView] = useState({
-    title: "Artists",
-    slide: 0,
-  });
+  const slideTitles = ["Artists", "Tracks", "Genres"];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentTitle, setCurrentTitle] = useState("Artists");
   const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   //Display current slide
   useEffect(() => {
-    window.location.href = `#${currentView.slide}`;
-  }, [currentView, showMoreInfo]);
+    window.location.href = `#${currentSlide}`;
+    setCurrentTitle(slideTitles[currentSlide]);
+  }, [currentSlide, showMoreInfo, slideTitles]);
 
   //Hook to load in data from api when currentTime selection is updated.
   //Only return current request.
@@ -85,15 +85,18 @@ function HomeScreen(props) {
             name={profileData.name}
             followers={profileData.followers}
             following={profileData.following}
-            currentView={currentView}
+            currentTitle={currentTitle}
           >
             <SplitButton
               currentSelection={currentTimeSelection}
               setSelection={setCurrentTimeSelection}
             />
           </Header>
-          <Slideshow currentView={currentView} setCurrentView={setCurrentView}>
-            <SlideshowItem id="0" title="Artists">
+          <Slideshow
+            slideUp={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+            slideDown={() => setCurrentSlide(Math.min(2, currentSlide + 1))}
+          >
+            <SlideshowItem active={currentSlide === 0} id="0" title="Artists">
               {topArtistData === "error" ? (
                 <h1 className="message error">Error please try again later.</h1>
               ) : (
@@ -111,7 +114,7 @@ function HomeScreen(props) {
               )}
             </SlideshowItem>
 
-            <SlideshowItem id="1" title="Tracks">
+            <SlideshowItem active={currentSlide === 1} id="1" title="Tracks">
               {topTracksData === "error" ? (
                 <h1 className="message error">Error please try again later.</h1>
               ) : (
@@ -129,7 +132,7 @@ function HomeScreen(props) {
               )}
             </SlideshowItem>
 
-            <SlideshowItem id="2" title="Genres">
+            <SlideshowItem active={currentSlide === 2} id="2" title="Genres">
               {topGenres === "error" ? (
                 <h1 className="message error">Error please try again later</h1>
               ) : (
