@@ -21,7 +21,6 @@ In the root of the project create a .env file with the following variables: <br/
 SPOTIFY_KEY=<Your Spotify client ID>
 SPOTIFY_SECRET=<Your Spotify client secret>
 SPOTIFY_REDIRECT_URL_LOCAL=http://localhost:5000/response
-
 ```
 
 <br/>
