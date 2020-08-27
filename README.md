@@ -35,7 +35,7 @@ Next, in the root project run:
 
 <br/>
 
-Then, navigate to the client directory:
+In another tab, navigate to the client directory:
 
 ### `cd client`
 
