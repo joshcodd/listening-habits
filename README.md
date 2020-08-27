@@ -23,6 +23,7 @@ SPOTIFY_KEY=`<Your Spotify client ID>` <br/>
 SPOTIFY_SECRET=`<Your Spotify client Secret>` <br/>
 
 SPOTIFY_REDIRECT_URL_LOCAL=http://localhost:5000/response
+
 ```
 
 <br/>
