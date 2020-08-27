@@ -1,10 +1,7 @@
-var cookieParser = require("cookie-parser");
 const path = require("path");
 const express = require("express");
-var request = require("request"); // "Request" library
+var request = require("request");
 const app = express();
-
-app.use(cookieParser());
 require("dotenv").config();
 
 const port = process.env.PORT || 5000;
@@ -12,10 +9,11 @@ let redirectURL = process.env.SPOTIFY_REDIRECT_URL_LOCAL;
 let home = "http://localhost:3000/";
 
 if (process.env.NODE_ENV === "production") {
-  //get env variables to work
   redirectURL = "https://listening-habits.herokuapp.com/response";
   home = "https://listening-habits.herokuapp.com";
 
+  // Heroku courtesy of :
+  // https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250/
   // Serve any static files
   app.use(express.static(path.join(__dirname, "client/build")));
   // Handle React routing, return all requests to React app

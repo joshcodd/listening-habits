@@ -63,8 +63,7 @@ function HomeScreen(props) {
   }
 
   // Return pop up information if has been requested, homepage (header + slideshow) if not.
-  // When displaying data within slideshow item, if API call returns error then error message is displayed.
-  // Furthermore, if the data has length of 0 then no data message is displayed.
+  // If API call returns error then error message is displayed within slideshow item.
   return (
     <div className="homeContainer">
       {showMoreInfo.isClicked === true ? (
@@ -87,8 +86,6 @@ function HomeScreen(props) {
             <SlideshowItem id="0" title="Artists">
               {topArtistData === "error" ? (
                 <h1 className="message error">Error please try again later.</h1>
-              ) : topArtistData.length === 0 ? (
-                <h1 className="message noData"> No data to show. </h1>
               ) : (
                 topArtistData.map((artist, index) => {
                   return (
@@ -107,8 +104,6 @@ function HomeScreen(props) {
             <SlideshowItem id="1" title="Tracks">
               {topTracksData === "error" ? (
                 <h1 className="message error">Error please try again later.</h1>
-              ) : topTracksData.length === 0 ? (
-                <h1 className="message noData"> No data to show. </h1>
               ) : (
                 topTracksData.map((track, index) => {
                   return (
@@ -127,8 +122,6 @@ function HomeScreen(props) {
             <SlideshowItem id="2" title="Genres">
               {topGenres === "error" ? (
                 <h1 className="message error">Error please try again later</h1>
-              ) : topGenres.length === 0 ? (
-                <h1 className="message noData"> No data to show. </h1>
               ) : (
                 <PieChart data={topGenres} />
               )}

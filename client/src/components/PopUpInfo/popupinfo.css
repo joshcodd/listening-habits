@@ -18,3 +18,8 @@
 .backArrow:hover {
   width: 50px;
 }
+
+.popUpContainer {
+  opacity: 0;
+  transition: opacity 0.5s;
+}

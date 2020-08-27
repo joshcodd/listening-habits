@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./popupinfo.css";
 import ArtistInfo from "../ArtistInfo/ArtistInfo";
 import TrackInfo from "../TrackInfo/TrackInfo";
 
 function PopUpInfo(props) {
+  const [isVisible, setIsvisible] = useState();
   const data = props.data.data;
   const type = props.data.type;
 
+  useEffect(() => {
+    setIsvisible(true);
+  }, []);
+
   return (
-    <div>
+    <div
+      className="popUpContainer"
+      style={isVisible ? { opacity: "100" } : { opacity: "0" }}
+    >
       <div className="arrowContainer">
         <img
           className="backArrow"
           src="./backArrow.png"
           onClick={() => {
-            props.onClick(false);
+            setIsvisible(false);
+            setTimeout(() => props.onClick(false), 500);
           }}
           alt="Back Arrow"
         />

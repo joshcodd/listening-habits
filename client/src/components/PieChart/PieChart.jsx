@@ -1,6 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import "./piechart.css";
+import "../generalstyles.css";
 
 function PieChart(props) {
   const chartColours = [
@@ -36,32 +37,39 @@ function PieChart(props) {
     ],
   };
 
+  //Display pie chart if there is data and a "no data" message if there is not.
   return (
     <div>
-      <div className="pieContainer">
-        <Doughnut
-          data={state}
-          options={{
-            legend: {
-              display: false,
-            },
-          }}
-        />
-      </div>
+      {data.length === 0 ? (
+        <h1 className="message noData"> No data to show. </h1>
+      ) : (
+        <div>
+          <div className="pieContainer">
+            <Doughnut
+              data={state}
+              options={{
+                legend: {
+                  display: false,
+                },
+              }}
+            />
+          </div>
 
-      <div className="key">
-        {data.map((genre, index) => {
-          return (
-            <div className="keySection" key={index}>
-              <span className="keyIndex">{index + 1} </span> {genre[0]}
-              <div
-                className="colourKey"
-                style={{ backgroundColor: chartColours[index] }}
-              ></div>
-            </div>
-          );
-        })}
-      </div>
+          <div className="key">
+            {data.map((genre, index) => {
+              return (
+                <div className="keySection" key={index}>
+                  <span className="keyIndex">{index + 1} </span> {genre[0]}
+                  <div
+                    className="colourKey"
+                    style={{ backgroundColor: chartColours[index] }}
+                  ></div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -81,10 +81,10 @@ export async function getTopTracks(token, timeRange) {
     `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=${resultLimit}&offset=0`,
     { headers: { Authorization: "Bearer " + token } }
   );
-  const topData = await res.json();
+  const body = await res.json();
 
   if (res.ok) {
-    return topData.items;
+    return body.items;
   } else {
     return "error";
   }
