@@ -18,49 +18,59 @@ import {
 
 function HomeScreen(props) {
   const accessToken = props.token;
-  const [profileData, setProfileData] = useState({
+  const defaultProfile = {
     image: "/placeholder.png",
-    followers: 0,
     following: 0,
-  });
+    followers: 0,
+  };
   const [currentView, setCurrentView] = useState({
     title: "Artists",
     slide: 0,
   });
   const [currentTimeSelection, setCurrentTimeSelection] = useState("All Time");
   const [showMoreInfo, setShowMoreInfo] = useState(false);
-  const [topArtistData, setTopArtists] = useState([]);
-  const [topTracksData, setTopTracks] = useState([]);
-  const [topGenres, setTopGenres] = useState([]);
 
   //Display current slide
   useEffect(() => {
     window.location.href = `#${currentView.slide}`;
   }, [currentView, showMoreInfo]);
 
-  //Get data from Spotify API on split button change.
-  useEffect(() => {
-    getSpotifyData();
-    // eslint-disable-next-line
-  }, [currentTimeSelection]);
+  //Hook to load in data from api when currentTime selection is updated.
+  //Only return current request.
+  function useLoad(loader, args) {
+    const [loadedData, setLoadedData] = useState(null);
 
-  //Get all spotify data and set result as state.
-  async function getSpotifyData() {
-    let timeRange = convertTime(currentTimeSelection);
-
-    let following = await getFollowing(accessToken);
-    let profile = await getProfileData(accessToken);
-    setProfileData({ ...profile, following: following });
-
-    let topArtists = await getTopArtists(accessToken, timeRange);
-    setTopArtists(topArtists);
-
-    let topTracks = await getTopTracks(accessToken, timeRange);
-    setTopTracks(topTracks);
-
-    let topGenres = await getTopGenres(accessToken, timeRange);
-    setTopGenres(topGenres);
+    useEffect(() => {
+      let isCurrentRequest = true;
+      loader(...args).then((result) => {
+        if (isCurrentRequest) {
+          setLoadedData(result);
+        }
+      });
+      return () => {
+        isCurrentRequest = false;
+      };
+      // eslint-disable-next-line
+    }, [loader, ...args]);
+    return loadedData;
   }
+
+  //Use hook to get Spotify data
+  const profileData = useLoad(getProfileData, [accessToken]) || defaultProfile;
+  const following = useLoad(getFollowing, [accessToken]) || 0;
+  profileData.following = following;
+
+  const topArtistData =
+    useLoad(getTopArtists, [accessToken, convertTime(currentTimeSelection)]) ||
+    [];
+
+  const topTracksData =
+    useLoad(getTopTracks, [accessToken, convertTime(currentTimeSelection)]) ||
+    [];
+
+  const topGenres =
+    useLoad(getTopGenres, [accessToken, convertTime(currentTimeSelection)]) ||
+    [];
 
   // Return pop up information if has been requested, homepage (header + slideshow) if not.
   // If API call returns error then error message is displayed within slideshow item.
