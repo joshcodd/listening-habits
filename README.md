@@ -3,7 +3,8 @@
 React application that utalizes the Spotify Web API, to view your top artist, tracks
 and genres. <br/>
 Access at: <https://listening-habits.herokuapp.com>
-(May take a minute due to Heroku)<br/>
+(May take a minute due to Heroku)
+<br/>
 ![github](https://user-images.githubusercontent.com/65715894/91501990-dac51200-e8be-11ea-8796-eaee592f595d.gif)
 
 ## What did i learn?
